@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Главная</title>
+{% endblock %}
+
+{% block body %}
+
+<br><br><br>
+<!--Заголовок-->
+
+<form method="post" action="{{ url_for('result') }}"
+      class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3"><font style="vertical-align: inherit;"><font
+            style="vertical-align: inherit;">Имя оператора:</font></font></div>
+    <!--Поле-->
+    <input class="form-control form-control-dark w-100" name="name" type="text" placeholder="Поиск" aria-label="Поиск">
+    <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+            <!--Кнопка "Отправить"-->
+            <button class="btn btn-dark" type="submit"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">Сформировать</font></font></button>
+        </div>
+    </div>
+</form>
+<br><br><br>
+<!--Кнопка "Добавить"-->
+<a href="{{ url_for('create') }}" class="btn btn-success"><font style="vertical-align: inherit;"><font
+        style="vertical-align: inherit;">+++ Добавить +++</font></font></a>
+
+
+<!--Таблица-->
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th scope="col"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">id</font></font></th>
+            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Тип
+                девайса</font></font></th>
+            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Имя
+                оператора</font></font></th>
+            <th scope="col"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">Дата</font></font></th>
+            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Успех
+                теста</font></font></th>
+            <th scope="col"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">Удаление</font></font></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for foo in tabel_all.items %}
+        <tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ foo.id
+                }}</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ foo.device_type
+                }}</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ foo.name
+                }}</font></font>
+            </td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ foo.date.date()
+                }}</font></font>
+            </td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ foo.success
+                }}</font></font></td>
+            <td><a class="btn btn-danger" href="/delete/{{ foo.id }}"><img class="img_del_tab"
+                                                                           src="/static/images/delete.svg" alt="clear"></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+
+            {% for page in tabel_all.iter_pages(left_edge=3, right_edge=3, left_current=3, right_current=3) %}
+
+            {% if page %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('index', page_num=page) }}">{{ page }}</a></li>
+            {% else %}
+            ...
+            {% endif %}
+            {% endfor %}
+
+        </ul>
+    </nav>
+</div>
+
+{% endblock %}

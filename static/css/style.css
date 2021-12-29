@@ -1,0 +1,28 @@
+
+.delete:hover{
+	border: 3px solid #bf4da5;
+}
+
+.img_del_tab {
+	margin: 0 auto;
+	max-height: 20px;
+
+    background-size: auto auto;
+}
+
+.img_del_tab:hover {
+	transform: scale(1.5);
+
+	cursor: pointer;
+
+	text-shadow: 10px 10px 5px #000;
+}
+
+.btn_btn-primary {
+	background: #00bc00;
+}
+
+.nav-link_px-3 {
+	color: #fff;
+	background: #212529;
+}

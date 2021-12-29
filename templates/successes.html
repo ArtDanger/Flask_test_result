@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block body %}
+<div class="px-3">
+    <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ title }}</font></font></h1>
+    <p class="lead">
+      <a href="{{ url_for('/') }}" class="btn btn-lg btn-secondary fw-bold border-white bg-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">На главную</font></font></a>
+    </p>
+  </div>
+{% endblock %}

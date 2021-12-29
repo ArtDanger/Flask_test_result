@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Новые данные</title>
+{% endblock %}
+
+{% block body %}
+<!--Заголовок-->
+<h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Добавление результата</font></font>
+</h1>
+
+<form action="" method="post">
+
+    <div class="col-sm-6">
+        <label for="device_type" class="form-label"><font style="vertical-align: inherit;"><font
+                style="vertical-align: inherit;">Тип девайса</font></font></label>
+        <input type="text" class="form-control" name="device_type" id="device_type">
+    </div>
+
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <label for="name" class="form-label"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">Имя</font></font></label>
+            <input type="text" class="form-control" name="name" id="name">
+        </div>
+
+
+        <h4 class="mb-3">Успех</h4>
+        <div class="form-check">
+            <input id="1" name="success" value="1" type="radio" class="form-check-input">
+            <label class="form-check-label" for="1">Пройден</label>
+        </div>
+        <div class="form-check">
+            <input id="0" name="success" value="0" type="radio" class="form-check-input">
+            <label class="form-check-label" for="0">Провален</label>
+        </div>
+
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit"><font style="vertical-align: inherit;"><font
+                style="vertical-align: inherit;">Отправить</font></font></button>
+    </div>
+</form>
+
+{% endblock %}
